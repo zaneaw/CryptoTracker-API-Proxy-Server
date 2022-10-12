@@ -5,7 +5,6 @@ const axios = require('axios');
 
 
 const API_BASE_URL = process.env.API_BASE_URL;
-const API_KEY_NAME = process.env.API_KEY_NAME;
 const API_KEY_VALUE = process.env.API_KEY_VALUE;
 const API_HOST_NAME = process.env.API_HOST_NAME;
 
@@ -22,7 +21,7 @@ router.get('/*', async (req, res) => {
             url: `${API_BASE_URL}/coins/${endpoint ? endpoint : ''}`,
             method: 'GET',
             headers: {
-                "X-RapidAPI-Key": "86b2a5aaf0mshcf4f7bee0bc4934p12d2cfjsnafa1cf1a7a75",
+                "X-RapidAPI-Key": API_KEY_VALUE,
                 "X-RapidAPI-Host": API_HOST_NAME,
             },
             params: {
