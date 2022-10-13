@@ -14,7 +14,7 @@ const limiter = rateLimit({
 });
 
 // Set static folder
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
 app.use(limiter);
 app.set('trust proxy', 1)
