@@ -3,7 +3,6 @@ const router = express.Router();
 const axios = require('axios');
 // const apicache = require('apicache');
 
-
 const API_BASE_URL = process.env.API_BASE_URL;
 const API_KEY_VALUE = process.env.API_KEY_VALUE;
 const API_HOST_NAME = process.env.API_HOST_NAME;
@@ -16,7 +15,7 @@ router.get('/*', async (req, res) => {
     try {
         const endpoint = req.query.endpoint ? req.query.endpoint : 'markets';
 
-        console.log(endpoint)
+        // console.log(endpoint)
 
         const options = {
             url: `${API_BASE_URL}/coins/${endpoint ? endpoint : ''}`,
