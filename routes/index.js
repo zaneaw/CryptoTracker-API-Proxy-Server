@@ -15,6 +15,7 @@ router.get('/get-all-coins', async (req, res) => {
     const options = {
         url: `${API_BASE_URL}/coins/markets`,
         method: 'GET',
+        cache: 'no-cache',
         headers: {
             "X-RapidAPI-Key": API_KEY_VALUE,
             "X-RapidAPI-Host": API_HOST_NAME,
@@ -49,6 +50,7 @@ router.get('/get-single-coin/:coinId', async (req, res) => {
     const options = {
         url: `${API_BASE_URL}/coins/${coinId}`,
         method: 'GET',
+        cache: 'no-cache',
         headers: {
             "X-RapidAPI-Key": API_KEY_VALUE,
             "X-RapidAPI-Host": API_HOST_NAME,
