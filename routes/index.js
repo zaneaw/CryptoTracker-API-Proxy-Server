@@ -27,7 +27,7 @@ router.get('/get-all-coins', async (req, res) => {
             order: 'market_cap_desc',
         },
     }
-    
+
     try {
         const data = await axios.request(options)
             .then(res => {
@@ -41,7 +41,7 @@ router.get('/get-all-coins', async (req, res) => {
                 return error;
         });
 
-        return res.status(200).json(data);
+        return res.json(data);
     } catch (error) {
         return res.status(500).json({ error });
     }
@@ -79,7 +79,7 @@ router.get('/get-single-coin/:coinId', async (req, res) => {
                 return error;
         });
 
-        return res.status(200).json(data);
+        return res.json(data);
     } catch (error) {
         return res.status(500).json({ error });
     }
