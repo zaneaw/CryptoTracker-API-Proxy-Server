@@ -32,16 +32,12 @@ router.get('/get-all-coins', async (req, res) => {
         const data = await axios.request(options)
             .then(res => {
                 const resData = res.data;
-                // console.log(resData);
-                // res.status(200).json(data);
                 return resData;
             }).catch(error => {
-                // console.error(error);
-                // res.status(500).json({error})
                 return error;
         });
 
-        return res.json(data);
+        return res.status(200).json(data);
     } catch (error) {
         return res.status(500).json({ error });
     }
@@ -70,16 +66,12 @@ router.get('/get-single-coin/:coinId', async (req, res) => {
         const data = await axios.request(options)
             .then(res => {
                 const resData = res.data;
-                // console.log(resData);
-                // res.status(200).json(data);
                 return resData;
             }).catch(error => {
-                // console.error(error);
-                // res.status(500).json({error})
                 return error;
         });
 
-        return res.json(data);
+        return res.status(200).json(data);
     } catch (error) {
         return res.status(500).json({ error });
     }
