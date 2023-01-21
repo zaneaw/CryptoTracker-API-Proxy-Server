@@ -10,15 +10,15 @@ const PORT = process.env.PORT || 5443;
 const app = express();
 
 // Rate Limiting
-const limiter = rateLimit({
-    windowMs: 10 * 60 * 1000, // 10 Mins
-    max: 500
-});
+// const limiter = rateLimit({
+//     windowMs: 10 * 60 * 1000, // 10 Mins
+//     max: 500
+// });
 
 // Set static folder
 // app.use(express.static('public'));
 
-app.use(limiter);
+// app.use(limiter);
 app.set('trust proxy', 1);
 
 // Routes
