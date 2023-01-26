@@ -2,23 +2,19 @@ const express = require('express');
 const cors = require('cors');
 const https = require('https');
 const fs = require('fs');
-const rateLimit = require('express-rate-limit');
+const apicache = require('apicache');
+// const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
 const PORT = process.env.PORT || 5443;
 
 const app = express();
 
-// Rate Limiting
-// const limiter = rateLimit({
-//     windowMs: 10 * 60 * 1000, // 10 Mins
-//     max: 500
-// });
+// Init cache
+let cache = apicache.middleware;
 
-// Set static folder
-// app.use(express.static('public'));
+app.use(cache('10 seconds'));
 
-// app.use(limiter);
 app.set('trust proxy', 1);
 
 // Routes
@@ -27,7 +23,7 @@ app.use('/api', require('./routes/index.js'));
 // Enable cors
 app.use(cors());
 
-app.use((req, res, next) => {
+app.use((req, res) => {
     if (!req.secure) {
         res.redirect('https://' + req.headers.host + req.url);
     };
