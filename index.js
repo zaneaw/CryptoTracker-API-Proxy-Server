@@ -13,7 +13,7 @@ const app = express();
 // Init cache
 let cache = apicache.middleware;
 
-app.use(cache('10 seconds'));
+app.use(cache('60 seconds'));
 
 app.set('trust proxy', 1);
 
