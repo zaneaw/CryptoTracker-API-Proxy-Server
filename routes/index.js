@@ -53,7 +53,7 @@ router.get('/get-single-coin/:coinId', async (req, res) => {
             localization: false,
             tickers: false,
             developer_data: false,
-            sparkline: true,
+            sparkline: false,
         },
     };
 
